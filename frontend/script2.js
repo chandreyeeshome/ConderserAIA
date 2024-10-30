@@ -47,7 +47,14 @@ async function startRecording() {
 // Attach the startRecording function to the start button
 document.getElementById('start').onclick = startRecording;
 
-const showText = () => {
-	var text = document.getElementById("containerText")
-	// console.log(text)
+// const showText = () => {
+// 	var text = document.getElementById("containerText")
+// 	// console.log(text)
+// }
+document.getElementById("textCont").style.visibility = "hidden";
+function showText() {
+    // Set a timeout to show the text after 3 seconds
+    setTimeout(function() {
+        document.getElementById("textCont").style.visibility = "visible";
+    }, 5000); // 3000 milliseconds = 3 seconds
 }

@@ -95,6 +95,7 @@ body{
     font-family: "Poppins", sans-serif;
     position: relative;
     top: 20px;
+    color: white;
 }
 .containerText{
     height: 60vh;
@@ -111,10 +112,11 @@ body{
    -webkit-backdrop-filter: blur(5px);
     margin: 5px;
 }
-.textCont{
+#textCont{
     padding: 40px;
     font-size: medium;
     font-family: "Poppins", sans-serif;
+    color: white;
 }
 .container{
     display: flex;
@@ -201,3 +203,4 @@ button {
     /* background-color: #f0f0f0 Example style */
     border: 10px solid #ffffff;   /* Example style*/
 }
+

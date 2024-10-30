@@ -1,3 +1,9 @@
+contract deployed to 0x5c83A58eE57982b784d06e8d8e879435f6301be4
+
+
+0xe14fB6a80ca5F5fd7F861Fa71Cf558835a531648
+---
+
 # ConderserAIA
 
 **ConderserAIA** is an innovative tool that combines audio recording, speech-to-text conversion, and blockchain technology to streamline interaction with smart contracts on the **AIA Chain**. With every audio conversion, ConderserAIA automatically deploys a smart contract, making it a unique and valuable addition to the AIA blockchain ecosystem.
@@ -72,7 +78,3 @@ Contributions are welcome! Please fork this repository and submit a pull request
 This project is licensed under the MIT License.
 
 
-contract deployed to 0x5c83A58eE57982b784d06e8d8e879435f6301be4
-
-
-0xe14fB6a80ca5F5fd7F861Fa71Cf558835a531648

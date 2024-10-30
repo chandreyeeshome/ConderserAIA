@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    /* background-image: url(/images/3d-modern-background-with-flowing-lines.jpg); */
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+body{
+    background-image: url(elements/download.png);
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    height: 100vh;
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header{
+    padding:20px;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    /* height: 100vh; */
+}
+.logoImg{
+    /* padding: 20px; */
+    height: 40px;
+    width: 40px;
+}
+#Wallet{
+    /* padding: 20px; */
+    width: 180px;
+    height: 35px;
+    color: white;
+    background-color: transparent;
+    border: solid white 2px;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    font-size:medium;
+    font-family: "Poppins", sans-serif;
+    /* flex: end; */
+    /* cursor: pointer; */
+}
+#Balance{
+    margin-left: 1200px;
+    margin-top: 5px;
+    width: 120px;
+    height: 35px;
+    color: white;
+    background-color: transparent;
+    border: solid white 2px;
+    border-radius: 20px;
+    font-size: medium;
+    font-family: "Poppins", sans-serif;
+    /* cursor: pointer; */
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+}
+.containerRec {
+    height: 60vh;
+    width: 80vh;
+    /* padding-top: 20px; */
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0e0e0ea2;
+    box-shadow:  0px 2px 5px rgba(0, 0, 0, 0.2);
+    border: solid #7f2b86 1px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+   -webkit-backdrop-filter: blur(5px);
+    margin: 5px;    
+	
+	/* > * {
+		margin: 8px;
+	} */
+}
+#convert{
+    width: 120px;
+    height: 35px;
+    /* padding-top: 5px; */
+    border-radius: 20px;
+    border:solid  #7f2b86 2px;
+    background-color: #0e0e0ea2;
+    font-size: medium;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    top: 20px;
+}
+.containerText{
+    height: 60vh;
+    width: 80vh;
+    /* padding-top: 30px; */
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0e0e0ea2;
+    border: solid #7f2b86 1px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+   -webkit-backdrop-filter: blur(5px);
+    margin: 5px;
+}
+.textCont{
+    padding: 40px;
+    font-size: medium;
+    font-family: "Poppins", sans-serif;
+}
+.container{
+    display: flex;
+}
+
+button {
+	/* max-width: 300px; */
+    cursor: pointer;
+}
+
+#start{
+    padding-top: 8px;
+    border-radius: 50%;
+    border:solid  #7f2b86 2px;
+    height: 80px;
+    width: 80px;
+    background-color: #0e0e0e;
+    /* margin-top: 50px; */
+    /* margin-right: 50px; */
+    margin: 10px;
+    /* margin-left: -5px; */
+}
+#stop{
+    padding-top: 5px;
+    border-radius: 50%;
+    border:solid  #7f2b86 2px;
+    height: 80px;
+    width: 80px;
+    background-color: #0e0e0e;
+    margin: 10px;
+}
+
+.btns{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.micImg{
+    height: 40px;
+    width: 40px;
+}
+.pauseImg{
+    height: 30px;
+    width: 30px;
+}
+#recorder{
+    background-color: #9e3434;
+}
+
+#player {
+    /* width: 100%;
+    height: 50px; */
+    background-color: #7f2b86; /* Background color */
+    border-radius: 50px; /*Rounded corners */
+    border: solid  #3d0642 4px;
+    color: white; /*Text color, this might not apply in all browsers*/
+}
+
+/* WebKit browsers (Chrome, Safari) */
+#player::-webkit-media-controls-panel {
+    background-color: #7f2b86; /* Background color */
+    border-radius: 50px; /* Rounded corners */
+    border: solid  #ffffff 2px;
+    
+}
+
+/* #player::-webkit-media-controls-play-button,
+#player::-webkit-media-controls-mute-button,
+#player::-webkit-media-controls-timeline {
+    /* background-color: white; Color for control buttons 
+} */
+#player::-webkit-media-controls-current-time-display,
+#player::-webkit-media-controls-time-remaining-display {
+    color: #ffffff; /* Text color */
+}
+
+#player::-moz-time-bar {
+    background-color: white;
+}
+
+.clicked {
+    /* background-color: #f0f0f0 Example style */
+    border: 10px solid #ffffff;   /* Example style*/
+}

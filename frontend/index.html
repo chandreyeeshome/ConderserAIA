@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condenser</title>
+    <link rel="icon" href="elements/favicon.svg" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <img src="elements/logo.svg" alt="" class="logoImg">
+        <!-- <button id="login">Login</button>
+        <button id="signup">Sign Up</button> -->
+        <button id="Balance">Balance</button>
+        <button id="Wallet">Connect Wallet</button>
+    </div>
+    <div class="container">
+        <div class="containerRec">
+            <!--<h1>VOICE RECORDING DEMO FTW, BRO</h1> -->
+            <!-- <span>Recorder</span> -->
+            <audio id="recorder" muted hidden></audio>
+            <!-- <span>Saved Recording</span> -->
+            <audio id="player" controls></audio>
+            <div class="btns">
+                <button id="start" onclick="startRecording()""><img src=" elements/211859_mic_icon 1.svg" alt=""
+                    class="micImg"></button>
+                <button id="stop"><img src="elements/pause.svg" alt="" class="pauseImg"></button>
+            </div>
+            <button id="convert" onclick="showText()">Convert</button>
+        </div>
+        <div class="containerText" id="containerText">
+            <!-- Recognized Text will appear here -->
+            <div class="textCont">
+                <p>Hello Everyone! <br>This is an Audio-to-Text conversion platform. I hope Condenser will be of great
+                    help to you. <br>Thank you.</p>
+            </div>
+        </div>
+    </div>
+    <script src="script2.js"></script>
+    <!-- <script src="script3.js"></script> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script> -->
+    <script>
+        const contractAddress = "0x4f491f05E1b65492F6349b1e0078d7a03ee97631"; // Update with your deployed contract address
+const contractABI = [
+{
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_conversionFee",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "ConversionPaid",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "conversionFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "payForConversion",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setConversionFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+];
+
+const connectWalletButton = document.getElementById("Wallet");
+const convertButton = document.getElementById("convert");
+
+async function connectWallet() {
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            const account = accounts[0];
+            connectWalletButton.textContent = account.slice(0, 6) + '...' + account.slice(-4);
+        } catch (error) {
+            console.error("User rejected the connection");
+        }
+    } else {
+        alert('Please install MetaMask!');
+    }
+}
+
+async function payForConversion() {
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            const provider = new ethers.BrowserProvider(window.ethereum);
+            const signer = provider.getSigner();
+            const contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+            // Retrieve the conversion fee from the contract
+            const conversionFee = await contract.conversionFee();
+            console.log("Conversion Fee (Wei):", conversionFee.toString());
+
+            // Send transaction with the required value
+            const tx = await contract.payForConversion({
+                value: conversionFee
+            });
+            console.log("Transaction sent:", tx);
+
+            // Wait for transaction confirmation
+            await tx.wait();
+            alert("Payment successful. Conversion in progress...");
+
+        } catch (error) {
+            console.error("Payment failed:", error);
+            // alert("Transaction failed. Please try again.");
+        }
+    } else {
+        alert("Please install MetaMask!");
+    }
+}
+
+// Event listeners
+connectWalletButton.addEventListener('click', connectWallet);
+convertButton.addEventListener("click", payForConversion);
+
+
+       
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <h1>VOICE RECORDING DEMO FTW, BRO</h1>
+    <span>Recorder</span>
+    <audio id="recorder" muted hidden></audio>
+    <div>
+        <button id="start">Record</button>
+        <button id="stop">Stop Recording</button>
+    </div>
+    <span>Saved Recording</span>
+    <audio id="player" controls></audio>
+</div>
+<script src="app.js"></script> -->

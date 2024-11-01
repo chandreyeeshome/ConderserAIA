@@ -1,5 +1,6 @@
 # Contract Address
 ### 0xe14fB6a80ca5F5fd7F861Fa71Cf558835a531648
+Verify Contract Address [here](https://testnet.aiascan.com/).
 
 ---
 
